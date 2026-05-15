@@ -1,20 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
   
-  // SINKRONISASI NAVIGASI (MOBILE FOOTER DAN DESKTOP BAR)
-  const navItems = document.querySelectorAll('.nav-item, .nav-link-desktop');
+  // SINKRONISASI NAVIGASI (MOBILE FOOTER DAN DESKTOP BAR + MENU UTAMA BARU)
+  const navItems = document.querySelectorAll('.nav-item, .nav-link-desktop, .btn-trigger');
   
   navItems.forEach(item => {
-    item.addEventListener('click', function() {
+    item.addEventListener('click', function(e) {
       const targetSection = this.getAttribute('data-target');
+      if (!targetSection) return;
+
+      e.preventDefault();
       
-      // Hapus kelas aktif di seluruh elemen navigasi
-      navItems.forEach(nav => {
+      // Hapus kelas aktif di seluruh elemen navigasi atas/bawah
+      document.querySelectorAll('.nav-item, .nav-link-desktop').forEach(nav => {
         nav.classList.remove('active');
       });
       
-      // Berikan kelas aktif pada elemen navigasi terpilih yang memicu trigger
+      // Berikan kelas aktif pada elemen navigasi yang cocok
       document.querySelectorAll(`[data-target="${targetSection}"]`).forEach(matchedNav => {
-        matchedNav.classList.add('active');
+        if (!matchedNav.classList.contains('btn-trigger')) {
+          matchedNav.classList.add('active');
+        }
       });
       
       // Transisi perpindahan section konten
@@ -25,8 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const targetElement = document.getElementById(targetSection);
       if(targetElement) {
         targetElement.classList.add('active-section');
-        // Auto scroll kembali ke atas halaman saat pindah menu
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Auto scroll kembali ke atas halaman atau ke elemen target saat dipicu
+        if (this.classList.contains('btn-trigger')) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
       }
     });
   });

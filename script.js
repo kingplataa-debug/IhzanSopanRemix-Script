@@ -1,25 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
   
-  // SINKRONISASI NAVIGASI (MOBILE FOOTER DAN DESKTOP BAR + MENU UTAMA BARU)
-  const navItems = document.querySelectorAll('.nav-item, .nav-link-desktop, .btn-trigger');
+  // SINKRONISASI NAVIGASI (MOBILE FOOTER DAN DESKTOP BAR)
+  const navItems = document.querySelectorAll('.nav-item, .nav-link-desktop');
   
   navItems.forEach(item => {
-    item.addEventListener('click', function(e) {
+    item.addEventListener('click', function() {
       const targetSection = this.getAttribute('data-target');
-      if (!targetSection) return;
-
-      e.preventDefault();
       
-      // Hapus kelas aktif di seluruh elemen navigasi atas/bawah
-      document.querySelectorAll('.nav-item, .nav-link-desktop').forEach(nav => {
+      // Hapus kelas aktif di seluruh elemen navigasi
+      navItems.forEach(nav => {
         nav.classList.remove('active');
       });
       
-      // Berikan kelas aktif pada elemen navigasi yang cocok
+      // Berikan kelas aktif pada elemen navigasi terpilih yang memicu trigger
       document.querySelectorAll(`[data-target="${targetSection}"]`).forEach(matchedNav => {
-        if (!matchedNav.classList.contains('btn-trigger')) {
-          matchedNav.classList.add('active');
-        }
+        matchedNav.classList.add('active');
       });
       
       // Transisi perpindahan section konten
@@ -30,12 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const targetElement = document.getElementById(targetSection);
       if(targetElement) {
         targetElement.classList.add('active-section');
-        // Auto scroll kembali ke atas halaman atau ke elemen target saat dipicu
-        if (this.classList.contains('btn-trigger')) {
-            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        // Auto scroll kembali ke atas halaman saat pindah menu
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     });
   });
@@ -77,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
                       `• Pilihan Style: ${encodeURIComponent(style)}%0A%0A` +
                       `Berapa estimasi total biayanya?`;
       
-      window.open(`https://wa.me/6282229712919?text=${message}`, '_blank');
+      window.open(`https://wa.me/6285753225113?text=${message}`, '_blank');
     });
   }
 
@@ -91,12 +82,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const cleanPrice = parseInt(productPrice.replace(/\D/g, '')) || 0;
       const formattedPrice = cleanPrice.toLocaleString('id-ID');
       
-      const message = `Halo Admin Zero Remix,%0A%0Asaya ingin membeli berkas Instant Project berikut:%0A` +
+      const message = `Halo kak ihzan,%0A%0Asaya ingin membeli berkas Instant Project berikut:%0A` +
                       `• Nama Produk: ${encodeURIComponent(productName)}%0A` +
                       `• Nominal Harga: Rp ${formattedPrice}%0A%0A` +
                       `Apakah berkas FLM tersebut ready untuk dikirim?`;
       
-      window.open(`https://wa.me/6282229712919?text=${message}`, '_blank');
+      window.open(`https://wa.me/6285753225113?text=${message}`, '_blank');
     });
   });
 

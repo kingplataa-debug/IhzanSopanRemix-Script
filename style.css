@@ -11,7 +11,6 @@
     --bg-card-hover: #1e293b;    /* Highlight Card saat hover */
     --primary-blue: #0056a3;     /* Biru Formal khas BRI */
     --accent-blue: #0091ff;      /* Biru Terang Elektrik untuk Glow/Aksen */
-    --accent-cyan: #00e5ff;      /* Cyan Terang untuk aksen list menu info */
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
     --border-subtle: rgba(255, 255, 255, 0.06);
@@ -137,8 +136,8 @@ body {
 /* 4. HERO DASHBOARD */
 .dashboard-intro {
     text-align: center;
-    margin-bottom: 30px;
-    padding: 60px 40px;
+    margin-bottom: 50px;
+    padding: 70px 40px;
     background: linear-gradient(145deg, #0f172a, #090d16);
     border-radius: 24px;
     border: 1px solid var(--border-subtle);
@@ -181,122 +180,11 @@ body {
     line-height: 1.7;
 }
 
-/* ================= STYLING MENU UTAMA BARU ================= */
-.main-menu-container {
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px solid rgba(0, 145, 255, 0.15);
-    border-radius: 24px;
-    padding: 30px;
-    margin-bottom: 50px;
-    box-shadow: var(--shadow-md);
-    backdrop-filter: blur(10px);
-}
-
-.menu-select-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 20px;
-    position: relative;
-    padding-left: 15px;
-}
-
-.menu-select-title::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 4px;
-    height: 18px;
-    background: var(--accent-blue);
-    border-radius: 2px;
-}
-
-.main-menu-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.menu-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 16px;
-    background: linear-gradient(90deg, #092540 0%, #004485 100%);
-    border: 1px solid rgba(0, 229, 255, 0.2);
-    border-radius: 14px;
-    color: #fff;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.menu-btn:hover {
-    transform: translateY(-2px);
-    border-color: var(--accent-cyan);
-    box-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
-    background: linear-gradient(90deg, #004485 0%, #0066cc 100%);
-}
-
-.menu-btn-info-product {
-    background: linear-gradient(90deg, #004e92 0%, #002f6c 100%);
-    border-color: rgba(0, 145, 255, 0.3);
-}
-
-.btn-testimonial {
-    background: linear-gradient(135deg, #0091ff 0%, #00c3ff 100%);
-    border: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 24px;
-    position: relative;
-    box-shadow: 0 6px 20px rgba(0, 145, 255, 0.3);
-}
-
-.btn-testimonial:hover {
-    background: linear-gradient(135deg, #00c3ff 0%, #0091ff 100%);
-    box-shadow: 0 8px 25px rgba(0, 229, 255, 0.4);
-}
-
-.btn-testimonial-content {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.badge-count {
-    background-color: #ff3b30;
-    color: #fff;
-    font-size: 12px;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(255, 59, 48, 0.6);
-    animation: pulseBadge 2s infinite;
-}
-
-@keyframes pulseBadge {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-}
-/* ========================================================== */
-
 /* 5. FEATURES / KEUNGGULAN TOKO */
 .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
-    margin-bottom: 30px;
 }
 
 .feature-card {
@@ -348,7 +236,7 @@ body {
     margin-bottom: 40px;
     color: var(--text-main);
     font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 800;
     letter-spacing: 0.5px;
     position: relative;
@@ -361,7 +249,7 @@ body {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 40px;
+    width: 50px;
     height: 4px;
     background-color: var(--accent-blue);
     border-radius: 2px;
@@ -733,11 +621,8 @@ body {
     .navbar-links { display: none; } /* Sembunyikan top menu di mobile */
     .navbar { padding: 15px 5%; justify-content: center; }
     .container { margin: 90px auto 110px; padding: 0 16px; }
-    .dashboard-intro { padding: 40px 20px; border-radius: 16px; margin-bottom: 20px; }
+    .dashboard-intro { padding: 40px 20px; border-radius: 16px; }
     .dashboard-intro h1 { font-size: 28px; }
-    .main-menu-container { padding: 20px 15px; margin-bottom: 40px; border-radius: 16px;}
-    .menu-btn { padding: 14px; font-size: 14px; }
-    .btn-testimonial { padding: 16px 20px; }
     .feature-card { padding: 24px; border-radius: 16px; }
     .audio-player { width: calc(100% - 32px); bottom: 85px; }
 }
